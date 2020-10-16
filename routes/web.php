@@ -19,4 +19,13 @@ Route::group([
 ],function ()
 {
     Route::view('/', 'home');
+
+    Route::group([
+        'prefix' => 'posts',
+        'as' => 'posts.'
+    ], function() {
+
+        
+
+    });
 });
