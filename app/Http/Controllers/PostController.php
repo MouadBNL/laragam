@@ -73,8 +73,13 @@ class PostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Post $post)
+    public function delete(Post $post)
     {
-        //
+        if(auth()->user()->id == $post->author->id){
+            $post->delete();
+            return redirect()->route('home');
+        }else {
+            return abort(419);
+        }
     }
 }

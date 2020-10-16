@@ -26,6 +26,7 @@ Route::group([
     ], function() {
 
         Route::post('/', [\App\Http\Controllers\PostController::class, 'store'])->name('store');
+        Route::delete('/{post}', [\App\Http\Controllers\PostController::class, 'delete'])->name('delete');
 
     });
 });
