@@ -18,14 +18,14 @@ Route::group([
     'middleware' => 'auth'
 ],function ()
 {
-    Route::view('/', 'home');
+    Route::view('/', 'home')->name('home');
 
     Route::group([
         'prefix' => 'posts',
         'as' => 'posts.'
     ], function() {
 
-        
+        Route::post('/', [\App\Http\Controllers\PostController::class, 'store'])->name('store');
 
     });
 });
